@@ -12,7 +12,7 @@ THEN: I check if requests status are equal to 200.
 AND: I check responses datas.
 AND: I check if employee ID match.
 
-##RUN
+## RUN
 
 1. Pull project.
 2. Use 'mvn clean test' command in project terminal.

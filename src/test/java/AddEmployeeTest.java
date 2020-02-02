@@ -7,6 +7,7 @@ import static org.hamcrest.Matchers.*;
 public class AddEmployeeTest extends BaseTest {
     private Employee employee;
     private Faker faker;
+
     @BeforeTest
     public void createData(){
         faker= new Faker();
@@ -16,8 +17,9 @@ public class AddEmployeeTest extends BaseTest {
         employee.setAge(faker.number().numberBetween(18,99));
         employee.setSalary(faker.number().numberBetween(1000,10000));
     }
+
     @Test
-    public void addEmployeeTest() throws InterruptedException {
+    public void addEmployeeTest() {
        Integer addedEmployeeId = RestService.getRestService().getEmployeeInterface().createEmployee(employee).
                 then()
                 .body("status",equalTo("success"))
@@ -40,7 +42,5 @@ public class AddEmployeeTest extends BaseTest {
                 .body("id",equalTo(addedEmployeeId))
                 .statusCode(200)
                 .log().all();
-
     }
-
 }

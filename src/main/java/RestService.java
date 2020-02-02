@@ -7,10 +7,12 @@ public class RestService {
     private RestService(){
         employeeInterface = new EmployeeService();
     }
+
     public static RestService getRestService() {
         return new RestService();
     }
-    public EmployeeInterface getEmployeeInterface(){
+
+    public EmployeeInterface getEmployeeInterface() {
         return employeeInterface;
     }
 }
